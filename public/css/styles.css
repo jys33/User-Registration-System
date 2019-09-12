@@ -1,0 +1,88 @@
+*:hover,*:focus,*:active { outline: none !important;box-shadow: none !important;}
+
+.form-control, .btn {border-radius: 0.125rem;}
+.required {color: #F44336;font-weight: bold;}
+.form-control:focus {border-color: #4c7ef3;}
+.form-control.invalid {border-color: #F44336;}
+.form-control.invalid~.invalid-feedback {display: block;}
+.invalid-feedback {color: #F44336;}
+
+.form-control{
+    height: calc(1.5em + 1.5rem + 2px);
+}
+
+.vertical-line {
+	border-left: 1px solid #343a40;
+	height: 100%;
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	margin-left: 25%;
+}
+
+label{margin-bottom: 0;}
+
+.error_box {
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    display:none;
+    font-size:14px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    position: relative;
+    padding: .50rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.125rem;
+}
+.visibility {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    cursor: pointer;
+    color: #343a40;
+    display: none;
+}
+.scrolltotop{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+
+/*Si cambiamos el tamño de fuente tambien se ajusta el button close*/
+.alert {border-radius: unset;text-align: center;font-size: 14px;}
+.alert button{line-height: .9;}
+
+.jumbotron {
+    margin-bottom: 0;
+    background-color: transparent;
+}
+
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron-heading {
+    /*font-weight: 300;*/
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+.navbar-brand{
+    color: #202020;
+    font-weight: 500;
+    margin-top: -1px;
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 1.25rem;
+    }
+}

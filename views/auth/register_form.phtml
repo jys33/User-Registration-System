@@ -1,0 +1,90 @@
+<?php require_once '../views/inc/header.phtml'; ?>
+<div class="card bg-light" style="width: 100%;max-width: 500px;margin: auto;">
+    <div class="card-body">
+        <h2>Registrarse</h2>
+        <p class="text-justify">No tiene que estar registrado para comprar en App, pero si lo hace, encontrará que hace que las compras se guarden de forma segura en mis datos para que pueda modificarlas en cualquier momento.</p>
+        <div class="register_error error_box"></div>
+        <form method="post" action="" name="register">
+            <p><b>Registro </b>(para nuevos usuarios)</p>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label for="apellido">Apellido <span class="required">*</span></label>
+                    <input type="text" name="apellido" id="apellido" class="form-control <?= empty($apellido_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $apellido ?>">
+                    <div class="invalid-feedback"><?= htmlspecialchars($apellido_err); ?></div>
+                </div>
+                <div class="form-group col">
+                    <label for="nombre">Nombre <span class="required">*</span></label>
+                    <input type="text" name="nombre" id="nombre" class="form-control <?= empty($nombre_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $nombre ?>">
+                    <div class="invalid-feedback"><?= htmlspecialchars($nombre_err); ?></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input type="email" name="email" id="reg_email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>">
+                <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña <span class="required">*</span></label>
+                <small id="passwordHelpBlock" class="form-text text-muted mb-1 mt-0">La contraseña debe tener al menos 8 caracteres de longitud y debe incluir al menos una letra mayúscula, un número y un carácter especial.</small>
+                <input type="password" name="password" id="reg_password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>" maxlength="50" aria-describedby="passwordHelpBlock">
+                <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
+            </div>
+            <div class="form-group">
+                <label for="password_confirm">Confirmar contraseña <span class="required">*</span></label>
+                <input type="password" name="password_confirm" id="password_confirm" class="form-control <?= empty($password_confirm_err) ? '' : 'invalid'; ?>" maxlength="50">
+                <div class="invalid-feedback"><?= htmlspecialchars($password_confirm_err); ?></div>
+            </div>
+            <div class="form-group">
+                <a href="/login.php" style="color: unset;">¿Ya tienes una cuenta?</a>
+            </div>
+            <button class="btn btn-lg btn-dark" type="submit">Registrarme</button>
+        </form>
+    </div>
+</div>
+<?php require_once '../views/inc/footer.phtml'; ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let register = new FormValidator('register', [
+        {
+            name: 'apellido',
+            display: 'apellido',
+            rules: 'required|alpha|min_length[3]|max_length[50]'
+        }, {
+            name: 'nombre',
+            display: 'nombre',
+            rules: 'required|alpha|min_length[3]|max_length[50]'
+        }, {
+            name: 'email',
+            display: 'correo electrónico',
+            rules: 'required|valid_email|max_length[50]',
+        }, {
+            name: 'password',
+            display: 'contraseña',
+            rules: 'required|min_length[8]|max_length[50]'
+        }, {
+            name: 'password_confirm',
+            display: 'confirmar contraseña',
+            rules: 'required|matches[password]|max_length[50]'
+        }], function(errors, evt) {
+            let SELECTOR_ERRORS = document.querySelector('.register_error');
+            if (errors.length > 0) {
+                let errorString = '';
+                let N = errors.length;
+                for (let i = 0; i < N; i++) {
+                    errorString += errors[i].message + '<br />';
+                }
+                errors[0].element.focus();
+                SELECTOR_ERRORS.innerHTML = errorString;
+
+                SELECTOR_ERRORS.style.display = 'block';
+                // SELECTOR_ERRORS.scrollIntoView({block: "end", behavior: "smooth"});
+                // // let topEl = SELECTOR_ERRORS.getBoundingClientRect().top;
+                window.scrollTo({top: 100, behavior: 'smooth'});
+
+                evt.preventDefault();
+            } else {
+                SELECTOR_ERRORS.style.display = 'none';
+            }
+        });
+    });
+</script>

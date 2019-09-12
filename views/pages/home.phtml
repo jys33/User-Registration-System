@@ -1,0 +1,17 @@
+<?php require_once '../views/inc/header.phtml'; ?>
+<section class="jumbotron text-center text-white">
+    <div class="container">
+    	<h1 class="jumbotron-heading">App example</h1>
+    	<p class="" style="font-size: 1.25rem;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id veritatis, delectus saepe, culpa doloremque omnis, molestiae fuga quidem ut illum nam, a quisquam commodi eos voluptatem.</p>
+    	<?php if(!isset($_SESSION['user_id'])): ?>
+    	<p>
+    		<a href="/login.php" class="btn btn-lg btn-light my-2" style="padding: .75rem 1.25rem;font-weight: 700;">Ingresar</a>
+    	</p>
+    	<?php else: ?>
+    	<p>
+    		<a href="/dashboard.php" class="btn btn-lg btn-light my-2" style="padding: .75rem 1.25rem;font-weight: 700;">Dashboard</a>
+    	</p>
+    	<?php endif ?>
+    </div>
+</section>
+<?php require_once '../views/inc/footer.phtml'; ?>

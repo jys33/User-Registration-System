@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="description" content="My first web page">
+        <meta name="keywords" content="HTML,CSS,PHP,JavaScript">
+        <meta name="author" content="JYS">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <?php if(isset($title)): ?>
+        <title>PhpApp - <?= htmlspecialchars($title) ?></title>
+        <?php else: ?>
+        <title>PhpApp</title>
+        <?php endif ?>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+    </head>
+    <body class="bg-dark" style="padding-top: 5rem">
+        <?php
+            require_once 'navbar.phtml';
+            flash('success');
+            flash('error');
+        ?>
+        <main role="main" class="container my-5">
