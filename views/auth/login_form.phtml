@@ -9,24 +9,26 @@
         <!-- <div class="vertical-line"></div> -->
         
         <form method="post" action="" name="login">
-            <p><b>Inicie sesión </b>(si ya está registrado)</p>
+            <p><b>Inicie sesión </b>(si ya está registrado) </p>
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input type="email" name="email" id="email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>">
                 <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
             </div>
             <div class="form-group position-relative">
-                <i class="material-icons visibility">visibility_off</i>
                 <label for="password">Contraseña</label>
-                <a class="float-right" href="/forgot_password.php" style="color: unset;">¿Olvidó su contraseña?</a>
+                <i class="material-icons visibility">visibility_off</i>
                 <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>" maxlength="50" style="padding-right: 50px;">
                 <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
             </div>
             <div class="form-group">
-                <a href="/register.php" style="color: unset;">¿Aún no tienes una cuenta?</a>
+                <a href="/forgot_password.php" style="color: unset;">¿Olvidó su contraseña?</a>
             </div>
-            <button class="btn btn-lg btn-dark" type="submit">Iniciar sesión</button>
+            <button class="btn btn-lg btn-block btn-dark" type="submit">Iniciar sesión</button>
         </form>
+        <p class="mt-4">
+            <a class="float-right" href="/register.php" style="color: unset;">¿Aún no tienes una cuenta?</a>
+        </p>
     </div>
 </div>
 <?php require_once '../views/inc/footer.phtml'; ?>
@@ -42,17 +44,18 @@
             display: 'contraseña',
             rules: 'required'
         }], function(errors, evt) {
-            let SELECTOR_ERRORS = document.querySelector('.login_error');
+            // let SELECTOR_ERRORS = document.querySelector('.login_error');
             if (errors.length > 0) {
-                let errorString = '';
+                // let errorString = '';
                 let N = errors.length;
                 for (let i = 0; i < N; i++) {
-                    errorString += errors[i].message + '<br />';
+                    errors[i].element.classList.add('invalid');
+                    errors[i].element.nextElementSibling.innerHTML = errors[i].message;
+                    // errorString += errors[i].message + '<br />';
                 }
                 errors[0].element.focus();
-                SELECTOR_ERRORS.innerHTML = errorString;
-                SELECTOR_ERRORS.style.display = 'block';
-                window.scrollTo({top: 100, left: 100, behavior: 'smooth'});
+                // SELECTOR_ERRORS.innerHTML = errorString;
+                // SELECTOR_ERRORS.style.display = 'block';
                 evt.preventDefault();
             } else {
                 SELECTOR_ERRORS.style.display = 'none';
@@ -66,15 +69,15 @@
         let password = document.querySelector('#password');
         let visibilityToggle = document.querySelector('.visibility');
 
-        if (password.classList.contains('invalid')) {
-            visibilityToggle.style.top = '35%';
-        }
 
         password.onfocus = checkInput;
         password.oninput = checkInput;
         visibilityToggle.onclick = handleClick;
 
         function checkInput() {
+            if (password.classList.contains('invalid')) {
+                visibilityToggle.style.top = '38%';
+            }
             if (password.value.length > 0) {
                 visibilityToggle.style.display = "block";
             } else {
