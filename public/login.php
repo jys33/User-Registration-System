@@ -49,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['passw
 		}
 
 		// flash('error', 'El usuario o la contraseña ingresada es incorrecta.', 'danger');
-	    flash('error', 'El usuario o la contraseña ingresada es incorrecta o aún no ha activado su cuenta.', 'danger');
+	    flash('error', 'El usuario o la contraseña ingresada es incorrecta o aún no ha activado su cuenta.', 'primary');
 	}
 }
 
 
-require_once '../views/auth/login_form.phtml';
+require_once '../views/auth/login_form2.phtml';
