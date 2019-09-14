@@ -1,5 +1,5 @@
-<?php require_once '../views/inc/header.phtml'; $nombre = '';?>
-<div class="card" style="width: 100%;max-width: 780px;margin: auto;border-color: #343a40;border-radius: 2px;">
+<?php require_once '../views/inc/header.phtml'; ?>
+<div class="card bg-light" style="width: 100%;max-width: 780px;margin: auto;border-color: #343a40;border-radius: 2px;">
     <div class="card-body">
         <div>Mis detalles</div>
         <h2>Iniciar sesión / Registrarse</h2>
@@ -32,6 +32,10 @@
                 <div class="vertical-line"></div>
             </div>
             <div class="col">
+                <?php
+                    // variables para este formulario de prueba
+                    $nombre = $nombre_err = $password_confirm_err = '';
+                ?>
                 <form method="post" action="/register.php" name="register">
                     <p><b>Registrarse </b>(para nuevos usuarios)</p>
                     <div class="form-group">

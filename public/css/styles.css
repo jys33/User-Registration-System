@@ -8,8 +8,14 @@
 .invalid-feedback {color: #F44336;}
 
 .form-control{
-    height: calc(1.5em + 1rem + 2px);
+    height: calc(1.5em + 1.5rem + 2px);
+    /*height: calc(1.6em + 1.625rem + 2px);*/
+    /*padding: .8125rem 1.25rem;*/
+    /*font-size: 1.0625rem;*/
+    /*font-weight: 400;*/
+    /*line-height: 1.6;*/
 }
+
 
 .vertical-line {
 	border-left: 1px solid #343a40;
@@ -54,7 +60,7 @@ label{margin-bottom: 0;}
 
 /*Si cambiamos el tamño de fuente tambien se ajusta el button close*/
 .alert {border-radius: unset;text-align: center;font-size: 14px;}
-.alert button{line-height: .9;}
+.alert button{line-height: .6;}
 
 .jumbotron {
     margin-bottom: 0;
@@ -83,6 +89,6 @@ label{margin-bottom: 0;}
     .navbar-expand-md .navbar-nav .nav-link {
         padding-right: 1rem;
         padding-left: 1rem;
-        font-size: 1.25rem;
+        /*font-size: 1.25rem;*/
     }
 }
