@@ -1,0 +1,165 @@
+<?php require_once '../views/inc/header.phtml'; $nombre = '';?>
+<div class="card" style="width: 100%;max-width: 780px;margin: auto;border-color: #343a40;border-radius: 2px;">
+    <div class="card-body">
+        <div>Mis detalles</div>
+        <h2>Iniciar sesión / Registrarse</h2>
+        <p class="text-justify">No tiene que estar registrado para comprar en App, pero si lo hace, encontrará que hace que las compras se guarden de forma segura en mis datos para que pueda modificarlas en cualquier momento.</p>
+        <p class="text-justify">Si ya estás registrado simplemente ingrese su <span class="required">*</span>correo electrónico de identificación de inicio de sesión y contraseña en los campos de entrada, tenga en cuenta que su contraseña distingue entre mayúsculas y minúsculas.</p>
+        <p class="mt-4 text-justify"><span class="required">*</span>Su correo electrónico de identificación de inicio de sesión es la dirección de correo electrónico con la que se registró.</p>
+
+        <div class="row">
+            <div class="col">
+                <form method="post" action="" name="login">
+                    <p><b>Inicie sesión </b>(si ya está registrado) </p>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico <span class="required">*</span></label>
+                        <input type="email" name="email" id="email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>">
+                        <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
+                    </div>
+                    <div class="form-group position-relative">
+                        <label for="password">Contraseña <span class="required">*</span></label>
+                        <i class="material-icons visibility">visibility_off</i>
+                        <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>" maxlength="50" style="padding-right: 50px;">
+                        <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <a href="/forgot_password.php " style="color: unset;">¿Olvidó su contraseña?</a>
+                    </div>
+                    <button class="btn btn-lg btn-dark" type="submit">Iniciar sesión</button>
+                </form>
+            </div>
+            <div class="col-md-1 position-relative">
+                <div class="vertical-line"></div>
+            </div>
+            <div class="col">
+                <form method="post" action="" name="register">
+                    <p><b>Registrarse </b>(para nuevos usuarios)</p>
+                    <div class="form-group">
+                        <label for="nombre">Nombre <span class="required">*</span></label>
+                        <input type="text" name="nombre" id="nombre" class="form-control <?= empty($nombre_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $nombre ?>">
+                        <div class="invalid-feedback"><?= htmlspecialchars($nombre_err); ?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico <span class="required">*</span></label>
+                        <input type="email" name="email" id="reg_email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>">
+                        <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña (mínimo 8 caracteres) <span class="required">*</span></label>
+                        <!-- <small id="passwordHelpBlock" class="form-text text-muted mb-1 mt-0 text-justify">La contraseña debe tener al menos 8 caracteres de longitud y debe incluir al menos una letra mayúscula, un número y un carácter especial.</small> -->
+                        <input type="password" name="password" id="reg_password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>" maxlength="50" aria-describedby="passwordHelpBlock">
+                        <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirm">Confirmar contraseña <span class="required">*</span></label>
+                        <input type="password" name="password_confirm" id="password_confirm" class="form-control <?= empty($password_confirm_err) ? '' : 'invalid'; ?>" maxlength="50">
+                        <div class="invalid-feedback"><?= htmlspecialchars($password_confirm_err); ?></div>
+                    </div>
+                    <button class="btn btn-lg btn-dark" type="submit">Registrarme</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<?php require_once '../views/inc/footer.phtml'; ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let login = new FormValidator('login', [
+        {
+            name: 'email',
+            display: 'correo electrónico',
+            rules: 'required|max_length[50]'
+        }, {
+            name: 'password',
+            display: 'contraseña',
+            rules: 'required'
+        }], function(errors, evt) {
+            if (errors.length > 0) {
+                let N = errors.length;
+                for (let i = 0; i < N; i++) {
+                    errors[i].element.classList.add('invalid');
+                    errors[i].element.nextElementSibling.innerHTML = errors[i].message;
+                }
+                errors[0].element.focus();
+                evt.preventDefault();
+            } else {
+                SELECTOR_ERRORS.style.display = 'none';
+            }
+        });
+
+        let register = new FormValidator('register', [
+        {
+            name: 'nombre',
+            display: 'nombre',
+            rules: 'required|alpha|min_length[3]|max_length[50]'
+        }, {
+            name: 'email',
+            display: 'correo electrónico',
+            rules: 'required|valid_email|max_length[50]',
+        }, {
+            name: 'password',
+            display: 'contraseña',
+            rules: 'required|min_length[8]|max_length[50]'
+        }, {
+            name: 'password_confirm',
+            display: 'confirmar contraseña',
+            rules: 'required|matches[password]|max_length[50]'
+        }], function(errors, evt) {
+            
+            if (errors.length > 0) {
+                
+                let N = errors.length;
+                for (let i = 0; i < N; i++) {
+                    
+                    errors[i].element.classList.add('invalid');
+                    errors[i].element.nextElementSibling.innerHTML = errors[i].message;
+                }
+                errors[0].element.focus();
+
+                evt.preventDefault();
+            } else {
+                SELECTOR_ERRORS.style.display = 'none';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkInput();
+        });
+
+        let password = document.querySelector('#password');
+        let visibilityToggle = document.querySelector('.visibility');
+
+
+        password.onfocus = checkInput;
+        password.oninput = checkInput;
+        visibilityToggle.onclick = handleClick;
+
+        function checkInput() {
+            if (password.classList.contains('invalid')) {
+                visibilityToggle.style.top = '38%';
+            }
+            if (password.value.length > 0) {
+                visibilityToggle.style.display = "block";
+            } else {
+                visibilityToggle.style.display = "none";
+            }
+        }
+
+        function handleClick() {
+            let type = password.getAttribute('type');
+            let title;
+            if (type === 'password') {
+                type = 'text';
+                visibilityToggle.textContent = 'visibility';
+                title = 'Ocultar';
+            } else {
+                type = 'password';
+                visibilityToggle.textContent = 'visibility_off';
+                title = 'Mostrar';
+            }
+            visibilityToggle.setAttribute('title', title + ' contraseña');
+            password.setAttribute('type', type);
+        }
+    });
+</script>

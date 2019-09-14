@@ -1,0 +1,72 @@
+<form id="loginForm" name="loginForm" action="checkUser" method="post">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <div class="row dbl-padding-bottom">
+                <div class="col-xs-12 text-center">
+                    <a href="https://www.cisco.com">
+                        <span class="icon-cisco"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="row dbl-padding-bottom">
+                <div class="col-xs-12 text-center">
+                    <h2>Sign in</h2>
+                </div>
+            </div>
+
+            <div class="row dbl-padding-bottom">
+                <div class="col-xs-12 col-md-10 col-md-offset-1">
+                    <div class="login-form-label-text">Username or Email</div>
+                    <div class="form-group--helper form-group has-warning">
+                        <div class="form-group__text">
+                            <input type="text" class="input--dirty input--valid" onkeydown="if(event.keyCode === 13){ if(!$('#btn').attr('disabled')){$('#btn').click()}}" value="" required oninput="onBlur(this)" autofocus autocomplete="off" />
+                            <input type="text" id="email" name="email" class="hide" value />
+                            <label for="email"></label>
+                        </div>
+                        <span id="emailAlert" class="help-block hide">
+                          <span class="icon-exclamation-circle"></span>
+                        <span id="errorMessages"></span>
+                        </span>
+                        <input type="hidden" name="rememberMe" value="on" />
+                    </div>
+                </div>
+            </div>
+            <div class="row dbl-padding-bottom">
+                <div class="col-xs-12 col-md-10 col-md-offset-1 btn-div text-center">
+                    <input type="button" onclick="onSubmit(this)" value='Next' id="btn" class="btn btn--primary" disabled />
+                </div>
+            </div>
+
+            <div class="text-center row base-padding-top social-list non-style">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                    <div class="social-media-icon"><i>or use your social media profile</i></div>
+                </div>
+                <div class="swiper-frame col-xs-12 col-sm-12">
+                    <div class="swiper-container col-xs-12 col-sm-12">
+                        <div class="swiper-wrapper" id="social-icon-list"></div>
+                    </div>
+                    <div class="swiper-button-next non-style"></div>
+                    <div class="swiper-button-prev non-style"></div>
+                </div>
+            </div>
+            <div class="text-center row base-padding-top dbl-padding-bottom" id="createAccount">
+                <div class="col-xs-12 col-md-10 col-md-offset-1 btn-div text-center">
+                    <div class="new-to-cisco">
+                        <i>New to Cisco?</i>
+                    </div>
+                    <button class="btn btn--hollow--primary" type="button" onclick="window.location.href = '/ui/tenants/global/v1.0/enrollment-ui?navStateId=d27ebf1e-d57b-484f-bd43-4e86e1b414d3';">
+                        Create Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="SAMLRequest" value="PHNhbWxwOkF1dGhuUmVxdWVzdCB4bWxuczpzYW1scD0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOnByb3RvY29sIiB4bWxuczpzYW1sPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YXNzZXJ0aW9uIiBJRD0iXzhlYTU1NTdjMWFkOGNiOWEwMGJhNDJmZWJlMWI5ZGExMjczYThiNjI1NyIgVmVyc2lvbj0iMi4wIiBJc3N1ZUluc3RhbnQ9IjIwMTktMDktMTNUMjM6NDM6NDJaIiBEZXN0aW5hdGlvbj0iaHR0cHM6Ly9pZGVudGl0eS5jaXNjby5jb20vYXBpL3YxL2lkcC1kaXNjb3ZlcnkvZGlzY292ZXJ5IiBBc3NlcnRpb25Db25zdW1lclNlcnZpY2VVUkw9Imh0dHBzOi8vd3d3Lm5ldGFjYWQuY29tL3BvcnRhbC9zaW1wbGVzYW1sL21vZHVsZS5waHAvc2FtbC9zcC9zYW1sMi1hY3MucGhwL2duaS1zcC1mb3Itb25laWQiIFByb3RvY29sQmluZGluZz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmJpbmRpbmdzOkhUVFAtUE9TVCI+PHNhbWw6SXNzdWVyPmduaV9zcF9mb3Jfb25laWQ8L3NhbWw6SXNzdWVyPjxkczpTaWduYXR1cmUgeG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogIDxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8xMC94bWwtZXhjLWMxNG4jIi8+CiAgICA8ZHM6U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8wNC94bWxkc2lnLW1vcmUjcnNhLXNoYTI1NiIvPgogIDxkczpSZWZlcmVuY2UgVVJJPSIjXzhlYTU1NTdjMWFkOGNiOWEwMGJhNDJmZWJlMWI5ZGExMjczYThiNjI1NyI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNlbnZlbG9wZWQtc2lnbmF0dXJlIi8+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIvPjwvZHM6VHJhbnNmb3Jtcz48ZHM6RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS8wNC94bWxlbmMjc2hhMjU2Ii8+PGRzOkRpZ2VzdFZhbHVlPmtCKzhVaXlBNjhFa3FndGtKNHViSEs2cFRPMG1uY1hubjZjWHp4U2Y4WTQ9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48L2RzOlNpZ25lZEluZm8+PGRzOlNpZ25hdHVyZVZhbHVlPm5WVjEzLy9uTUpTS0drTFhPUEZJSEh1VExtY0tPRXFVM2F3NUtabHRrLzJCaW9YYldKcnJGTHU4eWF0endaUTBuSWVrcWkwTE0zZSthOWpUWm9TYllLOVg3ZTg5R3BKVUJjekx0NlBDSkZLVU9FWk1wKy9ZSzlGV1NLMGFjZko1cmFPODNkdTY4NEs0ZitnelFIakh3bWo0YzRncmhzbXhMNHV4TzZkR2JtTVhpOG02d1kzaU9zanRKSXlkdzhkbktaNDhDdm8yMlJ5b1VlN2ZlSGltTUVGdWhmSFo4aCtLR3RGTm8wV0lDNkpGTEJLMUdVOUxjQ3dPSGRuSFkrZENvK3pISmJHMDdESnRSalBXMGRsdVpsQWlkOE9ZZllCamI0NFNNN2xuY1AvWC9pY1ErWW9zamxqZ0E0V0NzVmY5TmY2d1ZGUjJyS3EweXBLaHFwc1k0UT09PC9kczpTaWduYXR1cmVWYWx1ZT4KPGRzOktleUluZm8+PGRzOlg1MDlEYXRhPjxkczpYNTA5Q2VydGlmaWNhdGU+TUlJRUVEQ0NBdmlnQXdJQkFnSUpBS1ZBVTJRUWxncXBNQTBHQ1NxR1NJYjNEUUVCQ3dVQU1JR2NNUXN3Q1FZRFZRUUdFd0pWVXpFTE1Ba0dBMVVFQ0F3Q1EwRXhFVEFQQmdOVkJBY01DRk5oYmlCS2IzTmxNUkF3RGdZRFZRUUtEQWRPWlhSQlkyRmtNUTR3REFZRFZRUUxEQVZEYVhOamJ6RWRNQnNHQTFVRUF3d1VaMjVwTFhSbGMzUXVibVYwWVdOaFpDNWpiMjB4TERBcUJna3Foa2lHOXcwQkNRRVdIVzVsZEhOd1lXTmxMVzl3WlhKaGRHbHZibk5BWTJselkyOHVZMjl0TUI0WERURTVNREV5TkRFNU1EZzFNRm9YRFRJd01ERXlOREU1TURnMU1Gb3dnWnd4Q3pBSkJnTlZCQVlUQWxWVE1Rc3dDUVlEVlFRSURBSkRRVEVSTUE4R0ExVUVCd3dJVTJGdUlFcHZjMlV4RURBT0JnTlZCQW9NQjA1bGRFRmpZV1F4RGpBTUJnTlZCQXNNQlVOcGMyTnZNUjB3R3dZRFZRUUREQlJuYm1rdGRHVnpkQzV1WlhSaFkyRmtMbU52YlRFc01Db0dDU3FHU0liM0RRRUpBUllkYm1WMGMzQmhZMlV0YjNCbGNtRjBhVzl1YzBCamFYTmpieTVqYjIwd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNqT3FsRXFaSUdIVVNRZXEvOFpBbHZSeE9lcXhremZaMTVLT1dwRFVXb0FMVTRKRkp0WkhCMldJekZBdnIvbTcxSExDUTZpTTFwVXJFOFJoUVpzZXhnem4wV0J3UkR4SWd4dlBESDFRMHRaclVxNzQ3SlVjZWxndFA2Ym5PTCtZU2F6blJRMnArSHAxSHk2VGlPaEVuemFDeFlQVTBjRlllZGRrVWc3d0xLeFppeDdwcmxuZ0NTTFZLZE55eVJHSUc4RzlUUmRCbHVtZ1BFWEZNaU9HNFJuL1NFeUtld2w0QW1IUnc1Q0xlOXpFdTNZaFhmanU2WWJDdkhkVHByaENEb1JJNlpaL0NFWWdwY0NNV3cvV2JrOWlkcGYwZUdyQnJ4Q3l0SkRvalpwUXF5UnloREM4VGpBYXg2ejA1OU1hMHBJUWVCcmNVRUlSNUJCUHJoUjJPVkFnTUJBQUdqVXpCUk1CMEdBMVVkRGdRV0JCU0ZhTHdPNUtvOXN5UDdMYXl3UFZEd29XY0lwVEFmQmdOVkhTTUVHREFXZ0JTRmFMd081S285c3lQN0xheXdQVkR3b1djSXBUQVBCZ05WSFJNQkFmOEVCVEFEQVFIL01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ1hDYTNHaGpYbWd3c0xTQUZkVWkzdWJ6NXVDWlVPdHVkUzIxTU51cFZIOFUxM043VXdGNXRWSjFnZVIwR3oydjlyQlNjaURraWpQZ2piZW5maWtrSklyZGYzVGZiSnJPaTc0M0FkdFd5Z0pTTHpZa3lxNVBJbDdWcTRXdGErZ2tsemZjMUx6YWpVY2ZiajVHMXQ5MmdrclF4SlBvWi9zblMvd25TdDg3S1RkanlMbGFDcExQK0Q0dWljQlRZWTM3UjZWRnhSSjZkdjVzNkxSSEJCZHFRN1pKc0N1RUtabWZ0cCtDNTcxbThGMWp4TU4xak1BaXRnRkF6MmZKam5WN2dpc1JmT3laUjhwSEZueHArQ0p0QVJneDIyeGdjMkxLREd2cWd4SmxVMGkvemp1NGczUVBHSDhtR3VsQU1WRE5XcmFuZ28wbm13b3RuTzh5N0RiRUdHPC9kczpYNTA5Q2VydGlmaWNhdGU+PC9kczpYNTA5RGF0YT48L2RzOktleUluZm8+PC9kczpTaWduYXR1cmU+PHNhbWxwOk5hbWVJRFBvbGljeSBGb3JtYXQ9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpuYW1laWQtZm9ybWF0OnRyYW5zaWVudCIvPjwvc2FtbHA6QXV0aG5SZXF1ZXN0Pg==" />
+    <input type="hidden" name="SAMLResponse" value="" />
+    <input type="hidden" name="RelayState" value="https://www.netacad.com/portal/saml_login" />
+    <input type="hidden" name="Signature" value="" />
+    <input type="hidden" name="SigAlg" value="" />
+    <input id="Method" type="hidden" name="Method" value="POST" />
+
+</form>
