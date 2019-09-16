@@ -1,5 +1,5 @@
 <?php require_once '../views/inc/header.phtml'; ?>
-<div class="card bg-light" style="width: 100%;max-width: 780px;margin: auto;border-color: #343a40;border-radius: 2px;">
+<div class="card" style="width: 100%;max-width: 780px;margin: auto;border-color: #343a40;border-radius: 2px;">
     <div class="card-body">
         <div>Mis detalles</div>
         <h2>Iniciar sesión / Registrarse</h2>
@@ -163,22 +163,6 @@
             }
             visibilityToggle.setAttribute('title', title + ' contraseña');
             password.setAttribute('type', type);
-        }
-
-        function getElementById(el){
-            return document.getElementById(el);
-        }
-
-        function querySelector(el){
-            return document.querySelector(el);
-        }
-
-        function createInput(name, value) {
-            let newInput = document.createElement('input');
-            newInput.type = 'hidden';
-            newInput.name = name;
-            newInput.value = value;
-            return newInput;
         }
     });
 </script>
