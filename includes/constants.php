@@ -26,3 +26,10 @@ define('APP_VERSION', '1.0.0');
 
 // Site Name
 define('SITE_NAME', 'App');
+
+/* Incluimos la función en esté archivo ya que esta presente en todos los demás*/
+session_start();
+
+/* Establece la zona horaria predeterminada*/
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+

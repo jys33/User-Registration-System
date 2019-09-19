@@ -1,6 +1,4 @@
 <?php
-/*Incluimos la función en esté archivo ya que esta presente en todos los demás*/
-session_start();
 
 require 'constants.php';
 

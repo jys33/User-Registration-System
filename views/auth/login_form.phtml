@@ -4,7 +4,6 @@
         <h2>Iniciar sesión</h2>
         <p class="text-justify">Si ya estás registrado simplemente ingrese su <span class="required">*</span>correo electrónico de identificación de inicio de sesión y contraseña en los campos de entrada, tenga en cuenta que su contraseña distingue entre mayúsculas y minúsculas.</p>
         <p class="mt-4 text-justify"><span class="required">*</span>Su correo electrónico de identificación de inicio de sesión es la dirección de correo electrónico con la que se registró.</p>
-        <div class="login_error error_box"></div>
 
         <!-- <div class="vertical-line"></div> -->
         
@@ -44,21 +43,16 @@
             display: 'contraseña',
             rules: 'required'
         }], function(errors, evt) {
-            // let SELECTOR_ERRORS = document.querySelector('.login_error');
             if (errors.length > 0) {
-                // let errorString = '';
                 let N = errors.length;
                 for (let i = 0; i < N; i++) {
                     errors[i].element.classList.add('invalid');
                     errors[i].element.nextElementSibling.innerHTML = errors[i].message;
-                    // errorString += errors[i].message + '<br />';
                 }
                 errors[0].element.focus();
-                // SELECTOR_ERRORS.innerHTML = errorString;
-                // SELECTOR_ERRORS.style.display = 'block';
                 evt.preventDefault();
             } else {
-                SELECTOR_ERRORS.style.display = 'none';
+                disabledBtn();
             }
         });
 

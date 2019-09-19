@@ -3,7 +3,6 @@
     <div class="card-body">
         <h2>Registrarse</h2>
         <p class="text-justify">No tiene que estar registrado para comprar en App, pero si lo hace, encontrará que hace que las compras se guarden de forma segura en mis datos para que pueda modificarlas en cualquier momento.</p>
-        <div class="register_error error_box"></div>
         <form method="post" action="" name="register">
             <p><b>Registro </b>(para nuevos usuarios)</p>
             <div class="form-row">
@@ -66,23 +65,18 @@
             display: 'confirmar contraseña',
             rules: 'required|matches[password]|max_length[50]'
         }], function(errors, evt) {
-            // let SELECTOR_ERRORS = document.querySelector('.register_error');
             if (errors.length > 0) {
-                // let errorString = '';
                 let N = errors.length;
                 for (let i = 0; i < N; i++) {
-                    // errorString += errors[i].message + '<br />';
                     errors[i].element.classList.add('invalid');
                     errors[i].element.nextElementSibling.innerHTML = errors[i].message;
                 }
                 errors[0].element.focus();
-                // SELECTOR_ERRORS.innerHTML = errorString;
-                // SELECTOR_ERRORS.style.display = 'block';
-
                 evt.preventDefault();
             } else {
-                SELECTOR_ERRORS.style.display = 'none';
+                disabledBtn();
             }
         });
+
     });
 </script>
