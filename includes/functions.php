@@ -36,8 +36,7 @@ function meetLength($field, $minLength, $maxLength) {
 
 function checkEmailAddress($email) {
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return false;
-    return true;
+    return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ? false : true;
 }
 
 function filter_post() {
