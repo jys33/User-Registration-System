@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['passw
 			if (password_verify($password . 'P4^ncFD!i', $user['password'] ) == $user['password']) {
 				// remember that user's now logged in by storing user's ID in session
 				$_SESSION["user_id"] = $user["user_id"];
+				$_SESSION["user"] = $user["first_name"];
 				// redirect to portfolio
 	            redirect("/dashboard.php");
 			}
@@ -54,4 +55,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['passw
 }
 
 
-require_once '../views/auth/login_form2.phtml';
+require_once '../views/auth/login_form.phtml';
