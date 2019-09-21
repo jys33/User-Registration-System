@@ -1,1 +1,1 @@
-# Este es un sistema de registro de usuario
+# Esta App, es una aplicación desarrollada con PHP, muestra las operaciones comunes que realiza un usuario para registrarse, activar su cuenta, iniciar sesión, recuperar y cambiar su contraseña
