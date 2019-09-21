@@ -1,1 +1,1 @@
-# Esta App, es una aplicación desarrollada con PHP, muestra las operaciones comunes que realiza un usuario para registrarse, activar su cuenta, iniciar sesión, recuperar y cambiar su contraseña
+# Esta aplicación ha sido desarrollada con PHP, muestra las operaciones comunes que realiza un usuario para registrarse, activar su cuenta, iniciar sesión, recuperar y cambiar su contraseña.
