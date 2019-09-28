@@ -1,17 +1,15 @@
 <?php require_once '../views/inc/header.phtml'; ?>
-<div class="card bg-light" style="width: 100%;max-width: 500px;margin: auto;">
+<div class="" style="width: 100%;max-width: 500px;margin: auto;">
     <div class="card-body">
         <h2>Iniciar sesión</h2>
         <p class="text-justify">Si ya estás registrado simplemente ingrese su <span class="required">*</span>correo electrónico de identificación de inicio de sesión y contraseña en los campos de entrada, tenga en cuenta que su contraseña distingue entre mayúsculas y minúsculas.</p>
         <p class="mt-4 text-justify"><span class="required">*</span>Su correo electrónico de identificación de inicio de sesión es la dirección de correo electrónico con la que se registró.</p>
-
-        <!-- <div class="vertical-line"></div> -->
         
         <form method="post" action="" name="login">
             <p><b>Inicie sesión </b>(si ya está registrado) </p>
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>">
+                <input type="email" name="email" id="email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>" autofocus>
                 <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
             </div>
             <div class="form-group position-relative">
@@ -71,6 +69,8 @@
         function checkInput() {
             if (password.classList.contains('invalid')) {
                 visibilityToggle.style.top = '38%';
+            } else {
+                visibilityToggle.style.top = '50%';
             }
             if (password.value.length > 0) {
                 visibilityToggle.style.display = "block";

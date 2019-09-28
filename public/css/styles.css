@@ -93,3 +93,22 @@ label{margin-bottom: 0;}
     }
 }
 
+/* Correspondiente al cambio de tema*/
+body.dark {
+    background-color: #171717;
+    color: #e3e3e3;
+}
+
+.switch-theme {
+    background-color: transparent!important;
+    border: none!important;
+}
+button.switch-theme:focus{outline: none;}
+.theme-icon{
+    height: 22px;
+    width: 22px;
+    min-width: 22px;
+    float: right;
+    margin-bottom: 0;
+}
+/* Fin al cambio de tema*/
