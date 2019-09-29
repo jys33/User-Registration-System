@@ -1,47 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
-	onLoad();
-})
+	if(!localStorage.theme){
+		localStorage.theme = '';
+	}
 
-querySelector('.switch-theme').onclick = function (){
-	var themeIcon = querySelector('.theme-icon');
-	var srcElt;
-	if (themeIcon.src == moonIcon) {
-	    localStorage.setItem("theme", "dark");
-	    srcElt = sunIcon;
-	    showDarkItems();
+	querySelector('body').setAttribute('class', localStorage.theme);
+	if(querySelector('body').classList.contains('dark')){
+		querySelector('.theme-icon').setAttribute('src', sunIcon);
+		querySelector('.theme-icon').setAttribute('alt', 'Light Mode');
+
+		querySelector('.navbar').classList.add('navbar-dark');
+	}
+
+	// opcion button
+	querySelector('.dark-switcher').onclick = darkLight;
+
+});
+
+function darkLight() {
+	var icon, alt;
+	if(localStorage.theme != 'dark'){
+		localStorage.theme = 'dark';
+		icon = sunIcon;
+		alt = 'Light Mode';
+		querySelector('.navbar').classList.add('navbar-dark');
 	} else {
-	    localStorage.setItem("theme", "light");
-	    srcElt = moonIcon;
-	    showLightItems();
+		icon = moonIcon;
+		alt = 'Dark Mode';
+		localStorage.theme = '';
+		querySelector('.navbar').classList.remove('navbar-dark');
 	}
-	themeIcon.setAttribute('src', srcElt);
-}
-
-function showDarkItems(){
-	querySelector('.theme-icon').alt = "Light Mode";
-	document.body.setAttribute('class', 'dark');
-	querySelector('.navbar').classList.remove('navbar-light');
-	querySelector('.navbar').classList.add('navbar-dark');
-}
-
-function showLightItems(){
-	querySelector('.theme-icon').alt = "Dark Mode";
-	document.body.setAttribute('class', '');
-	querySelector('.navbar').classList.remove('navbar-dark');
-	querySelector('.navbar').classList.add('navbar-light');
-
-}
-
-function onLoad(){
-	var themeIcon = querySelector('.theme-icon');
-	var srcElt;
-	if (localStorage.getItem("theme") === "dark") {
-	    showDarkItems();
-	    srcElt = sunIcon;
-	}
-	else {
-	    showLightItems();
-	    srcElt = moonIcon;
-	}
-	themeIcon.setAttribute('src', srcElt);
+	querySelector('.theme-icon').setAttribute('alt', alt);
+	querySelector('.theme-icon').setAttribute('src', icon);
+	querySelector('body').setAttribute('class', localStorage.theme);
 }

@@ -1,3 +1,24 @@
+/* Correspondiente al cambio de tema*/
+body.dark {
+    background-color: #171717;
+    color: #e3e3e3;
+    /*transition: background 0.3s ease;*/
+}
+.theme-icon{
+    height: 22px;
+    width: 22px;
+    min-width: 22px;
+    float: right;
+    margin-bottom: 0;
+}
+.dark-switcher {
+    background-color: transparent;
+    border: none;
+}
+button.dark-switcher:focus{
+    outline: none;
+}
+/* Fin al cambio de tema*/
 *:hover,*:focus,*:active { outline: none !important;box-shadow: none !important;}
 
 .form-control, .btn {border-radius: 0.125rem;}
@@ -93,22 +114,3 @@ label{margin-bottom: 0;}
     }
 }
 
-/* Correspondiente al cambio de tema*/
-body.dark {
-    background-color: #171717;
-    color: #e3e3e3;
-}
-
-.switch-theme {
-    background-color: transparent!important;
-    border: none!important;
-}
-button.switch-theme:focus{outline: none;}
-.theme-icon{
-    height: 22px;
-    width: 22px;
-    min-width: 22px;
-    float: right;
-    margin-bottom: 0;
-}
-/* Fin al cambio de tema*/
