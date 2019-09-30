@@ -14,9 +14,11 @@
             </div>
             <div class="form-group position-relative">
                 <label for="password">Contraseña</label>
-                <i class="material-icons visibility">visibility_off</i>
-                <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>" maxlength="50" style="padding-right: 50px;">
+                <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>signin-password" maxlength="50" style="padding-right: 50px;">
                 <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
+                <div class="show-password" title="Mostrar contraseña">
+                    <button type="button" class="show-pass"><i class="material-icons float-right password-icon">visibility_off</i></button>
+                </div>
             </div>
             <div class="form-group">
                 <a href="/forgot_password.php" style="color: unset;">¿Olvidó su contraseña?</a>
@@ -54,45 +56,37 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            checkInput();
-        });
+        // Mostrar y Ocultar contraseña
+        showHidePassword();
+    });
 
-        let password = querySelector('#password');
-        let visibilityToggle = querySelector('.visibility');
-
-
-        password.onfocus = checkInput;
-        password.oninput = checkInput;
-        visibilityToggle.onclick = handleClick;
-
-        function checkInput() {
-            if (password.classList.contains('invalid')) {
-                visibilityToggle.style.top = '38%';
-            } else {
-                visibilityToggle.style.top = '50%';
-            }
-            if (password.value.length > 0) {
-                visibilityToggle.style.display = "block";
-            } else {
-                visibilityToggle.style.display = "none";
-            }
-        }
-
-        function handleClick() {
-            let type = password.getAttribute('type');
-            let title;
-            if (type === 'password') {
-                type = 'text';
-                visibilityToggle.textContent = 'visibility';
+    function showHidePassword(){
+        querySelector('.show-pass').onclick = function () {
+            var inputType = querySelector('.signin-password').getAttribute('type');
+            var title, content;
+            if (inputType === 'password') {
+                inputType = 'text';
+                content = 'visibility';
                 title = 'Ocultar';
             } else {
-                type = 'password';
-                visibilityToggle.textContent = 'visibility_off';
+                inputType = 'password';
+                content = 'visibility_off';
                 title = 'Mostrar';
             }
-            visibilityToggle.setAttribute('title', title + ' contraseña');
-            password.setAttribute('type', type);
+            querySelector('.password-icon').textContent = content;
+            querySelector('.show-password').setAttribute('title', title + ' contraseña');
+            querySelector('.signin-password').setAttribute('type', inputType);
         }
-    });
+
+        querySelector('.signin-password').onkeyup = checkInput;
+        querySelector('.signin-password').onfocus = checkInput;
+    }
+
+    function checkInput(){
+        if (querySelector('.signin-password').value) {
+            querySelector('.show-password').style.display = 'block';
+        } else {
+            querySelector('.show-password').style.display = 'none';
+        }
+    }
 </script>

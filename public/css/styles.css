@@ -1,8 +1,8 @@
 /* Correspondiente al cambio de tema*/
 body.dark {
-    background-color: #171717;
-    color: #e3e3e3;
-    /*transition: background 0.3s ease;*/
+    background-color: #171717!important;
+    color: #e3e3e3!important;
+    transition: background 0.3s ease;
 }
 .theme-icon{
     height: 22px;
@@ -19,6 +19,7 @@ button.dark-switcher:focus{
     outline: none;
 }
 /* Fin al cambio de tema*/
+
 *:hover,*:focus,*:active { outline: none !important;box-shadow: none !important;}
 
 .form-control, .btn {border-radius: 0.125rem;}
@@ -62,14 +63,31 @@ label{margin-bottom: 0;}
     margin-bottom: 1rem;
     border-radius: 0.125rem;
 }
-.visibility {
-    position: absolute;
-    top: 50%;
-    right: 14px;
-    cursor: pointer;
-    color: #343a40;
+
+/*Visibilidad de contraseña*/
+.show-password {
     display: none;
+    height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 48px;
+    transform: translateY(-50%);
+    width: 20px;
 }
+.show-pass {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 20px;
+}
+.show-pass:focus{outline: none;}
+.password-icon{color: #7F8C8D;}
+/*Fin visibilidad de contraseña*/
+
 .scrolltotop{
     position: fixed;
     right: 10px;
@@ -113,4 +131,3 @@ label{margin-bottom: 0;}
         /*font-size: 1.25rem;*/
     }
 }
-
