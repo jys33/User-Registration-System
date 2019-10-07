@@ -17,7 +17,9 @@
                 <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>signin-password" maxlength="50" style="padding-right: 50px;">
                 <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
                 <div class="show-password" title="Mostrar contraseña">
-                    <button type="button" class="show-pass"><i class="material-icons float-right password-icon">visibility_off</i></button>
+                    <button type="button" class="show-pass">
+                        <i class="material-icons float-right password-icon">visibility_off</i>
+                    </button>
                 </div>
             </div>
             <div class="form-group">

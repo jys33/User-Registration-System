@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['apellido'], $_POST['no
 		    
 		    if( mail($to, $subject , $message, $headers) ) {
 		        // seteamos el mensage flash para la vista
-		        flash('success', 'Gracias por registrarse! Un correo electrónico de confirmación a sido enviado a <b>' . $email . '.</b> Por favor, haga click en el enlace de ese correo electrónico para activar su cuenta.');
+		        flash('success', 'Gracias por registrarse! Un correo electrónico de confirmación a sido enviado a <b>' . $email . '.</b><br> Por favor, haga click en el enlace de ese correo electrónico para activar su cuenta.');
 		        // re dirigimos al usuario a la página de login
 		        redirect('/login.php');
 		    }

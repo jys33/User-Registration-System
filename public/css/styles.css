@@ -4,18 +4,22 @@ body.dark {
     color: #e3e3e3!important;
     transition: background 0.3s ease;
 }
-.theme-icon{
+img.theme-icon{
     height: 22px;
     width: 22px;
     min-width: 22px;
     float: right;
     margin-bottom: 0;
 }
-.dark-switcher {
-    background-color: transparent;
-    border: none;
+
+button.dark-switcher {
+    -webkit-appearance: none;
+    border: 0;
+    margin: 0;
+    /*cursor: pointer;*/
+    background: transparent;
 }
-button.dark-switcher:focus{
+button.dark-switcher:focus {
     outline: none;
 }
 /* Fin al cambio de tema*/
