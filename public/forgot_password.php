@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email']) ) {
 		    $headers = 'MIME-Version: 1.0' . "\r\n";
 		    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		    $headers .= 'From:PHPApp <noreply@eduoffyoucode.com>' . "\r\n";
-		    $message = "Para restablecer su contraseña haga click en el siguiente enlace:\n\n";
+		    $message = "Para restablecer su contraseña haga clic en el siguiente enlace:\n\n";
 		    $message .= '<p><a href="'. BASE_URL . "/password_reset.php?user_id=" . urlencode($user_id) . "&key=" . urldecode($key) .'">Restablecer contraseña</a></p><p>El enlace expirará en 24 horas.</p>';
 
 		    if( mail($to, $subject , $message, $headers) ) {

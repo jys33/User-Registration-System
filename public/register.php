@@ -129,12 +129,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['apellido'], $_POST['no
 			$headers = 'MIME-Version: 1.0' . "\r\n";
 			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 			$headers .= 'From:PHPApp <noreply@bwpoffyoucode.com>' . "\r\n";
-			$message = "Para activar su cuenta haga click en el siguiente enlace:\n\n";
+			$message = "Para activar su cuenta haga clic en el siguiente enlace:\n\n";
 			$message .= '<p><a href="'. BASE_URL . "/activate.php?email=" . urldecode($email) . "&key=" . urlencode($activationkey) .'">Confirmación de registro</a></p>';
 		    
 		    if( mail($to, $subject , $message, $headers) ) {
 		        // seteamos el mensage flash para la vista
-		        flash('success', 'Gracias por registrarse! Un correo electrónico de confirmación a sido enviado a <b>' . $email . '.</b><br> Por favor, haga click en el enlace de ese correo electrónico para activar su cuenta.');
+		        flash('success', 'Gracias por registrarse! Un correo electrónico de confirmación a sido enviado a <b>' . $email . '.</b><br> Por favor, haga clic en el enlace de ese correo electrónico para activar su cuenta.');
 		        // re dirigimos al usuario a la página de login
 		        redirect('/login.php');
 		    }
