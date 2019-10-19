@@ -32,4 +32,3 @@ session_start();
 
 /* Establece la zona horaria predeterminada*/
 date_default_timezone_set('America/Argentina/Buenos_Aires');
-

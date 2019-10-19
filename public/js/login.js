@@ -183,3 +183,28 @@ function createNewRegExp(str) {
   var pattern = new RegExp(regexString);
   return pattern;
 }
+
+function serializeArray(form) {
+    // Setup our serialized data
+    var serialized = [];
+    // Loop through each field in the form
+    var N = form.elements.length;
+    for (var i = 0; i < N; i++) {
+        var field = form.elements[i];
+        // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+        if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+        // If a multi-select, get all selections
+        if (field.type === 'select-multiple') {
+            var M = field.options.length;
+            for (var n = 0; n < M; n++) {
+                if (!field.options[n].selected) continue;
+                serialized.push({name: field.name, value: field.options[n].value});
+            }
+        }
+        // Convert field data to a query string
+        else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+            serialized.push({name: field.name, value: field.value});
+        }
+    }
+    return serialized;
+};

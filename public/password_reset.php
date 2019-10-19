@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 
 		require_once '../views/auth/password_reset_form.phtml';
+		exit;
 	}
 
 }
@@ -110,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['user_id'], $_GET['key'])
 	if (count($rows) == 1) {
 
 		require_once '../views/auth/password_reset_form.phtml';
+		exit;
 	}
 }
 

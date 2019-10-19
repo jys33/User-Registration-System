@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md p-3 navbar-light">
+<nav class="navbar navbar-expand-md navbar-light p-3">
     <div class="container">
         <a class="navbar-brand mb-1" href="/index.php">App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,8 +22,9 @@
                 <li class="nav-item"><a class="nav-link" href="/register.php">Registrarse</a></li>
                 <?php endif; ?>
                 <li class="nav-item">
-                    <button class="nav-link dark-switcher" title="Toggle Dark Mode">
+                    <button class="nav-link dark-switcher" aria-label="Toggle Dark Mode." title="Toggle Dark Mode">
                         <img src="img/moon.svg" class="theme-icon" alt="Dark Mode">
+                        <!-- <img src="img/sun.svg" class="theme-icon light-mode" alt="Light Mode" style="display: none;"> -->
                     </button>
                 </li>
             </ul>
