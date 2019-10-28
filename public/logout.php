@@ -2,7 +2,7 @@
 
 require_once '../includes/functions.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION['user_id'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_SESSION['id'])) {
 	// log out current user, if any
 	logout();
 

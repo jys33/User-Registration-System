@@ -2,7 +2,7 @@
 
 require_once '../includes/functions.php';
 
-if (array_key_exists('user_id', $_SESSION)) {
+if (array_key_exists('id', $_SESSION)) {
     redirect('/dashboard.php');
 }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'], $_POST['passw
 			$user = $rows[0];
 			if (password_verify($password . 'P4^ncFD!i', $user['password'] ) == $user['password']) {
 				// remember that user's now logged in by storing user's ID in session
-				$_SESSION["user_id"] = $user["user_id"];
+				$_SESSION["id"] = $user["user_id"];
 				$_SESSION["user"] = $user["first_name"];
 				// redirect to portfolio
 	            redirect("/dashboard.php");

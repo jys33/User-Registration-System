@@ -2,7 +2,7 @@
 
 require_once '../includes/functions.php';
 
-if (array_key_exists('user_id', $_SESSION)) {
+if (array_key_exists('id', $_SESSION)) {
     redirect('/dashboard.php');
 }
 

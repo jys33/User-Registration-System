@@ -2,7 +2,7 @@
 
 require_once '../includes/functions.php';
 
-if (array_key_exists('user_id', $_SESSION)) {
+if (array_key_exists('id', $_SESSION)) {
     redirect('/dashboard.php');
 }
 
@@ -139,6 +139,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['apellido'], $_POST['no
 		        redirect('/login.php');
 		    }
 		}
+		// if($insert_success != 0)
+		// {
+		//     // find user id
+		//     $rows = CS50::query("SELECT LAST_INSERT_ID() AS id");
+		//     $id = $rows[0]["id"];
+		    
+		//     // remember that user's now logged in by storing user's ID in session
+		//     $_SESSION["id"] = $id;
+
+		//     // redirect to portfolio
+		//     redirect("/");
+		// }
 		
 		flash('error', 'El registro no fue realizado.', 'danger');
 	}
