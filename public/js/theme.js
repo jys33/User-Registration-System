@@ -5,19 +5,16 @@ if(localStorage.dark === 'true'){
 querySelector('.dark-switcher').onclick = darkLightMode;
 
 function darkLightMode() {
-    let themeIcon, alt;
-    if(querySelector('.theme-icon').getAttribute('src') === 'img/moon.svg'){
+    let themeIcon;
+    if(querySelector('.theme-icon').textContent === '🌙'){
         localStorage.dark = true;
-        themeIcon = 'sun.svg';
-        alt = 'Light';
+        themeIcon = '☀️';
     } else{
         localStorage.dark = false;
-        themeIcon = 'moon.svg';
-        alt = 'Dark';
+        themeIcon = '🌙';
     }
     document.body.classList.toggle('dark');
     querySelector('.navbar').classList.toggle('navbar-dark');
     querySelector('.navbar').classList.toggle('navbar-light');
-    querySelector('.theme-icon').setAttribute('src', 'img/' + themeIcon);
-    querySelector('.theme-icon').setAttribute('alt', alt + ' Mode');
+    querySelector('.theme-icon').textContent = themeIcon;
 }

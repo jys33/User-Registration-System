@@ -1,6 +1,9 @@
 :root{
-    --white: #e3e3e3;
-    --dark: #171717;
+    /* --white: #e3e3e3; original*/
+    --white: rgb(251,251,254);
+    /* --dark: #171717; original*/
+    /* --dark: #1C1B22; background firefox*/
+    --dark: #17181c; /*background emojipedia*/
 }
 /* Correspondiente al cambio de tema*/
 body.dark {
@@ -13,17 +16,19 @@ button.dark-switcher {
     -webkit-appearance: none;
     border: 0;
     margin: 0;
-    /*cursor: pointer;*/
+    cursor: pointer;
 }
 button.dark-switcher:focus {
     outline: none;
 }
-img.theme-icon{
-    height: 22px;
+.theme-icon{
+    /* height: 22px;
     width: 22px;
     min-width: 22px;
     float: right;
-    margin-bottom: 0;
+    margin-bottom: 0; */
+    font-size: 1.5rem;
+    /* padding-top: 0; */
 }
 /* Fin al cambio de tema*/
 

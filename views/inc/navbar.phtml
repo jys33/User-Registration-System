@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light p-3">
     <div class="container">
-        <a class="navbar-brand mb-1" href="/index.php">App</a>
+        <a class="navbar-brand mb-1" href="/index.php">NeoApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,10 +22,10 @@
                 <li class="nav-item"><a class="nav-link" href="/register.php">Registrarse</a></li>
                 <?php endif; ?>
                 <li class="nav-item">
-                    <button class="nav-link dark-switcher" aria-label="Toggle Dark Mode." title="Toggle Dark Mode">
-                        <img src="img/moon.svg" class="theme-icon" alt="Dark Mode">
-                        <!-- <img src="img/sun.svg" class="theme-icon light-mode" alt="Light Mode" style="display: none;"> -->
-                    </button>
+                    <!-- <button class="nav-link dark-switcher pr-0" aria-label="Toggle Dark Mode." title="Toggle Dark Mode">
+                        <img src="img/moon.svg" class="" alt="Dark Mode">
+                    </button> -->
+                    <button class="nav-link dark-switcher theme-icon active pr-0 pt-0" aria-label="Toggle Dark Mode." title="Toggle Dark Mode">🌙</button>
                 </li>
             </ul>
         </div>
@@ -33,6 +33,6 @@
 </nav>
 <style>
     .navbar-brand::before {
-        content: "\01F988  ";
+        /* content: "\01F988  "; */
     }
 </style>
