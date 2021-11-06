@@ -7,14 +7,14 @@
         
         <form method="post" action="" name="login">
             <p><b>Inicie sesión </b>(si ya está registrado) </p>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="email">Correo electrónico</label>
                 <input type="email" name="email" id="email" class="form-control <?= empty($email_err) ? '' : 'invalid'; ?>" maxlength="50" value="<?= $email ?>" autofocus>
                 <div class="invalid-feedback"><?= htmlspecialchars($email_err); ?></div>
             </div>
-            <div class="form-group position-relative">
+            <div class="mb-3 position-relative">
                 <label for="password">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?>signin-password" maxlength="50" style="padding-right: 50px;">
+                <input type="password" name="password" id="password" class="form-control <?= empty($password_err) ? '' : 'invalid'; ?> signin-password" maxlength="50" style="padding-right: 50px;">
                 <div class="invalid-feedback"><?= htmlspecialchars($password_err); ?></div>
                 <!-- Mostrar y ocultar contraseña -->
                 <div class="show-password" title="Mostrar contraseña">
@@ -23,7 +23,7 @@
                     </button>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <a href="/forgot_password.php" style="color: unset;">¿Olvidó su contraseña?</a>
             </div>
             <button class="btn btn-lg btn-block btn-dark" type="submit">Iniciar sesión</button>

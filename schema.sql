@@ -14,8 +14,8 @@ CREATE TABLE user (
   activation CHAR(32) NOT NULL,
   created_on DATETIME NOT NULL,
   last_modified_on DATETIME NOT NULL,
-    deleted TINYINT(1) NOT NULL DEFAULT 0,
-    UNIQUE KEY user_email_unique (user_email)
+  deleted TINYINT(1) NOT NULL DEFAULT 0,
+  UNIQUE KEY user_email_unique (user_email)
 ) ENGINE = InnoDB CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 
 CREATE TABLE forgot_password (

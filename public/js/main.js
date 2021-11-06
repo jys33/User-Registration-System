@@ -9,5 +9,5 @@ function getElementById(el){
 }
 
 function disabledBtn() {
-	querySelector('.btn').setAttribute('disabled', true);
+    querySelector('.btn').setAttribute('disabled', true);
 }
