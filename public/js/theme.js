@@ -6,7 +6,7 @@ querySelector('.dark-switcher').onclick = darkLightMode;
 
 function darkLightMode() {
     let themeIcon;
-    if(querySelector('.theme-icon').textContent === '🌙'){
+    if(querySelector('.theme-icon').innerText === '🌙'){
         localStorage.dark = true;
         themeIcon = '☀️';
     } else{
@@ -16,5 +16,5 @@ function darkLightMode() {
     document.body.classList.toggle('dark');
     querySelector('.navbar').classList.toggle('navbar-dark');
     querySelector('.navbar').classList.toggle('navbar-light');
-    querySelector('.theme-icon').textContent = themeIcon;
+    querySelector('.theme-icon').innerText = themeIcon;
 }
